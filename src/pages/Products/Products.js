@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addProducts, getAllProducts } from "../../app/slices/productSlice";
-import { Navigation } from "../../components";
+import { Navigation, ProductCard } from "../../components";
 import productsApi from "../../services/productsApi";
 
 const Products = () => {
@@ -44,8 +44,7 @@ const Products = () => {
 
         {/* ------------MAIN CONTENT------------*/}
         <div className="content">
-          <h1>Products</h1>
-          {products && products.map((product) => <li>{product?.title}</li>)}
+          {products && products.map((product) => <ProductCard key={product?.id} product={product} />)}
         </div>
         {/* ------------------------------------ */}
       </main>
