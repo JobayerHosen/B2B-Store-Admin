@@ -1,0 +1,70 @@
+/* --------Global-------- */
+:root {
+  --side-nav-width: 240px;
+  --theme-primary: #0170ba;
+  --theme-secondary: #ff6a00;
+  --theme-success: #00b600;
+}
+
+body {
+  color: #fff;
+}
+/* ----------------------------- */
+
+/* -------Layout------- */
+.view {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.header {
+  width: 100%;
+  background-color: var(--theme-primary);
+  padding: 1rem;
+  display: flex;
+  position: sticky;
+  top: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.title-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.side-nav {
+  width: 0;
+  height: 0;
+  overflow: auto;
+  border: 1px solid rgba(0, 0, 0, 0.13);
+}
+.main {
+  width: 100%;
+  height: 100vh;
+}
+.content {
+  padding: 1rem;
+  padding-bottom: 8rem;
+}
+/* ------------------------------- */
+
+@media screen and (min-width: 768px) {
+  /* -------Layout------- */
+  .side-nav {
+    width: var(--side-nav-width);
+    height: 100%;
+  }
+  .main {
+    display: flex;
+    height: calc(100vh - 5rem);
+  }
+  .content {
+    width: calc(100% - var(--side-nav-width));
+    height: 100%;
+    overflow-y: auto;
+  }
+  /* -------------------------- */
+}
