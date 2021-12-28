@@ -1,28 +1,10 @@
-import React, { useEffect } from "react";
-import { Spinner } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import React from "react";
 import { useNavigate } from "react-router";
-import { addProducts, getAllProducts } from "../../app/slices/productSlice";
-import { Navigation, ProductCard } from "../../components";
-import productsApi from "../../services/productsApi";
+import { Navigation } from "../../components";
+import ProductsContent from "./ProductsContent";
 
 const Products = () => {
-  const products = useSelector(getAllProducts);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await productsApi.get("/products.json").catch((err) => {
-        console.log(err);
-      });
-      dispatch(addProducts(response?.data));
-    };
-
-    fetchProducts();
-  }, [dispatch]);
-
   return (
     <div className="view">
       {/*-------------PAGE HEADER-------------*/}
@@ -47,11 +29,7 @@ const Products = () => {
 
         {/* ------------MAIN CONTENT------------*/}
         <div className="content">
-          {products ? (
-            products.map((product) => <ProductCard key={product?.id} product={product} />)
-          ) : (
-            <Spinner animation="border" variant="primary" />
-          )}
+          <ProductsContent />
         </div>
         {/* ------------------------------------ */}
       </main>

@@ -1,28 +1,10 @@
-import React, { useEffect } from "react";
-import { Spinner } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import React from "react";
 import { useNavigate } from "react-router";
-import { addOrders, getAllOrders } from "../../app/slices/orderSlice";
 import { Navigation } from "../../components";
-import OrderCard from "../../components/OrderCard";
-import ordersApi from "../../services/ordersApi";
+import OrderContent from "./OrderContent";
 
 const Orders = () => {
-  const orders = useSelector(getAllOrders);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchOrders = async () => {
-      const response = await ordersApi.get("/orders.json").catch((err) => {
-        console.log(err);
-      });
-      dispatch(addOrders(response?.data));
-    };
-
-    fetchOrders();
-  }, [dispatch]);
 
   return (
     <div className="view">
@@ -48,11 +30,7 @@ const Orders = () => {
 
         {/* ------------MAIN CONTENT------------*/}
         <div className="content">
-          {orders ? (
-            orders.map((order) => <OrderCard kee={order?.id} order={order} />)
-          ) : (
-            <Spinner animation="border" variant="primary" />
-          )}
+          <OrderContent />
         </div>
         {/* ------------------------------------ */}
       </main>
