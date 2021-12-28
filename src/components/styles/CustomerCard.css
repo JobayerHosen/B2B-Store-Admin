@@ -1,0 +1,30 @@
+.customer-card {
+  display: flex;
+}
+.customer-card .img-wrapper {
+  width: 5rem;
+  height: 5rem;
+  margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fafafa;
+  border-radius: 0.4rem;
+  border: 1px solid #eee;
+}
+
+.customer-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.customer-card .dynamic-avatar {
+  font-size: 3rem;
+  width: 5rem;
+  text-align: center;
+}
+
+.customer-title {
+  color: #111;
+  text-decoration: none;
+}
