@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 import { addCustomers, getAllCustomers } from "../../app/slices/customerSlice";
 import { CustomerCard, Navigation } from "../../components";
 import { Spinner } from "react-bootstrap";
@@ -9,6 +10,7 @@ import customersApi from "../../services/customersApi";
 const Customers = () => {
   const customers = useSelector(getAllCustomers);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCustomers = async () => {
@@ -27,7 +29,7 @@ const Customers = () => {
       <header className="header">
         <div className="title-bar">
           <div>
-            <i className="bi bi-arrow-left fs-3"></i>
+            <i onClick={() => navigate(-1)} className="bi bi-arrow-left fs-3"></i>
           </div>
           <h3>Customers</h3>
           <div>

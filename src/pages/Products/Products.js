@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Spinner } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 import { addProducts, getAllProducts } from "../../app/slices/productSlice";
 import { Navigation, ProductCard } from "../../components";
 import productsApi from "../../services/productsApi";
@@ -9,6 +10,7 @@ import productsApi from "../../services/productsApi";
 const Products = () => {
   const products = useSelector(getAllProducts);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -27,7 +29,7 @@ const Products = () => {
       <header className="header">
         <div className="title-bar">
           <div>
-            <i className="bi bi-arrow-left fs-3"></i>
+            <i onClick={() => navigate(-1)} className="bi bi-arrow-left fs-3"></i>
           </div>
           <h3>Products</h3>
           <div>
