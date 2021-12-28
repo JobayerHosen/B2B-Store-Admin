@@ -1,3 +1,4 @@
+import moment from "moment";
 import React from "react";
 import { Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
@@ -10,7 +11,7 @@ const OrderCard = ({ order }) => {
     <div className="order-card shadow rounded mb-3 p-2">
       <div className="d-flex w-100 justify-content-between align-items-center">
         <p className=" fw-bold my-0">Order #{id}</p>
-        <p className="text-muted my-0">{date}</p>
+        <p className="text-muted my-0">{moment(date).calendar()}</p>
       </div>
       <div className="d-flex align-items-center my-2">
         <div className="img-wrapper border rounded">
