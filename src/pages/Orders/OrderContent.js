@@ -4,27 +4,20 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addOrders, getAllOrders } from "../../app/slices/orderSlice";
 import OrderCard from "../../components/OrderCard";
-import ordersApi from "../../services/ordersApi";
+import { fetchOrders } from "../../services/ordersApi";
 
 const OrderContent = () => {
   const orders = useSelector(getAllOrders);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchOrders = async () => {
-      const response = await ordersApi.get("/orders.json").catch((err) => {
-        console.log(err);
-      });
-      dispatch(addOrders(response?.data));
-    };
-
-    fetchOrders();
+    fetchOrders().then((response) => dispatch(addOrders(response?.data)));
   }, [dispatch]);
 
   return (
     <div className="mx-auto" style={{ maxWidth: "1000px" }}>
       {orders ? (
-        orders.map((order) => <OrderCard kee={order?.id} order={order} />)
+        orders.map((order) => <OrderCard key={order?.id} order={order} />)
       ) : (
         <Spinner animation="border" variant="primary" />
       )}

@@ -1,5 +1,14 @@
 import axios from "axios";
 
-export default axios.create({
+const productsApi = axios.create({
   baseURL: "https://jobayerhosen.github.io/data",
 });
+
+export const fetchProducts = async () => {
+  const response = await productsApi.get("/products.json").catch((err) => {
+    console.log(err);
+  });
+  return response;
+};
+
+export default productsApi;

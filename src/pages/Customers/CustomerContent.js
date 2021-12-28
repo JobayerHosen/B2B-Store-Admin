@@ -4,21 +4,14 @@ import { useDispatch } from "react-redux";
 import { addCustomers, getAllCustomers } from "../../app/slices/customerSlice";
 import { CustomerCard } from "../../components";
 import { Spinner } from "react-bootstrap";
-import customersApi from "../../services/customersApi";
+import { fetchCustomers } from "../../services/customersApi";
 
 const CustomerContent = () => {
   const customers = useSelector(getAllCustomers);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchCustomers = async () => {
-      const response = await customersApi.get("/customers.json").catch((err) => {
-        console.log(err);
-      });
-      dispatch(addCustomers(response?.data));
-    };
-
-    fetchCustomers();
+    fetchCustomers().then((response) => dispatch(addCustomers(response?.data)));
   }, [dispatch]);
 
   return (
