@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Spinner } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addProducts, getAllProducts } from "../../app/slices/productSlice";
@@ -44,7 +45,11 @@ const Products = () => {
 
         {/* ------------MAIN CONTENT------------*/}
         <div className="content">
-          {products && products.map((product) => <ProductCard key={product?.id} product={product} />)}
+          {products ? (
+            products.map((product) => <ProductCard key={product?.id} product={product} />)
+          ) : (
+            <Spinner animation="border" variant="primary" />
+          )}
         </div>
         {/* ------------------------------------ */}
       </main>
