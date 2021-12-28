@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -6,7 +6,7 @@ import { addOrders, getAllOrders } from "../../app/slices/orderSlice";
 import OrderCard from "../../components/OrderCard";
 import { fetchOrders } from "../../services/ordersApi";
 
-const OrderContent = () => {
+const OrderContent = ({ filter }) => {
   const orders = useSelector(getAllOrders);
   const dispatch = useDispatch();
 
@@ -17,7 +17,13 @@ const OrderContent = () => {
   return (
     <div className="mx-auto" style={{ maxWidth: "1000px" }}>
       {orders ? (
-        orders.map((order) => <OrderCard key={order?.id} order={order} />)
+        filter ? (
+          orders
+            .filter((order) => order.status === filter.status)
+            .map((order) => <OrderCard key={order?.id} order={order} />)
+        ) : (
+          orders.map((order) => <OrderCard key={order?.id} order={order} />)
+        )
       ) : (
         <Spinner animation="border" variant="primary" />
       )}

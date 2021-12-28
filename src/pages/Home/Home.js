@@ -1,5 +1,6 @@
 import React from "react";
 import { Navigation } from "../../components";
+import ActiveOrders from "./ActiveOrders";
 import Overview from "./Overview";
 
 const Home = () => {
@@ -23,8 +24,8 @@ const Home = () => {
 
         {/* ------------MAIN CONTENT------------*/}
         <div className="content">
-          {/* OVERVIEW SECTION  */}
           <Overview />
+          <ActiveOrders />
         </div>
         {/* ------------------------------------ */}
       </main>
