@@ -1,0 +1,37 @@
+.order-card .img-wrapper {
+  width: 8rem;
+  height: 5rem;
+  margin-right: 1rem;
+  background-color: #efefef;
+}
+
+.order-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.order-card .status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.order-card .status:before {
+  content: "";
+  margin-right: 0.5rem;
+  background-color: #012023;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+.order-card .shipped:before {
+  background-color: #0170ba;
+}
+.order-card .accepted:before {
+  background-color: #00b600;
+}
+.order-card .pending:before {
+  background-color: #ff6a00;
+}
+.order-card .rejected:before {
+  background-color: #ff1122;
+}
