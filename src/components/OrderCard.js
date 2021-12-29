@@ -21,11 +21,11 @@ const OrderCard = ({ order }) => {
           <h6 className="text-muted">{items?.length} Items</h6>
           <h5 className="fw-bold">${grandTotal}</h5>
         </div>
-        <p className="fs-5 fw-bolder text-secondary">{paymentMethod}</p>
+        <span className="alert-warning d-inline p-0 px-2 rounded-pill fw-bold text-secondary">{paymentMethod}</span>
       </div>
       <div className="d-flex w-100 justify-content-between align-items-center border-top pt-1">
         <span className={`text-muted fw-bold status ${status.toLowerCase()}`}>{status}</span>
-        <NavLink to={`/orders/${id}`}>
+        <NavLink to={`/order-details/${id}`}>
           <Button className="rounded-pill py-0 fw-bold" variant="outline-secondary">
             Details
           </Button>
