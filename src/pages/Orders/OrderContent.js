@@ -3,7 +3,7 @@ import { Spinner } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addOrders, getAllOrders } from "../../app/slices/orderSlice";
-import OrderCard from "../../components/OrderCard";
+import { OrderCard } from "../../components";
 import { fetchOrders } from "../../services/ordersApi";
 
 const OrderContent = ({ filter }) => {
