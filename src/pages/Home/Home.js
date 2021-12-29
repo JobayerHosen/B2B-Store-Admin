@@ -11,7 +11,9 @@ const Home = () => {
         <div className="title-bar">
           <h3>B2B Store Admin</h3>
           <div></div>
-          <div></div>
+          <div>
+            <i className="bi bi-bell fs-3"></i>
+          </div>
         </div>
       </header>
       {/* ------------------------------------ */}

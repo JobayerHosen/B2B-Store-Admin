@@ -15,9 +15,9 @@ const ProductCard = ({ product }) => {
         <small>{category}</small>
         <h5 className="fw-bold">${price}</h5>
         <div className="d-flex w-100 justify-content-between">
-          <p className="text-success">In Stock</p>
+          <span className="text-success">In Stock</span>
           <NavLink to={`/products/${id}`}>
-            <Button className="rounded-pill fw-bold" variant="outline-warning">
+            <Button className=" rounded-pill py-0 fw-bold" variant="outline-secondary">
               Details
             </Button>
           </NavLink>
