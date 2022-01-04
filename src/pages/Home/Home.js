@@ -1,7 +1,7 @@
 import React from "react";
-import { Avatar, Navigation } from "../../components";
+import { Col, Row } from "react-bootstrap";
+import { Avatar, Navigation, SalesOverview } from "../../components";
 import ActiveOrders from "./ActiveOrders";
-import Overview from "./Overview";
 
 const Home = () => {
   return (
@@ -27,7 +27,11 @@ const Home = () => {
 
         {/* ------------MAIN CONTENT------------*/}
         <div className="content">
-          <Overview />
+          <Row>
+            <Col xs="12" md="6">
+              <SalesOverview />
+            </Col>
+          </Row>
           <ActiveOrders />
         </div>
         {/* ------------------------------------ */}
