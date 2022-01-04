@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
-import { Navigation } from "../../components";
+import { Avatar, Navigation } from "../../components";
 import ManageContent from "./ManageContent";
 
 const Manage = () => {
@@ -10,11 +10,11 @@ const Manage = () => {
       {/*-------------PAGE HEADER-------------*/}
       <header className="header">
         <div className="title-bar">
-          <div>
-            <i onClick={() => navigate(-1)} className="bi bi-arrow-left fs-3"></i>
-          </div>
           <h3>Manage</h3>
-          <div></div>
+          <div className="d-flex align-items-center">
+            <i className="bi bi-bell fs-3"></i>
+            <Avatar />
+          </div>
         </div>
       </header>
       {/* ------------------------------------ */}

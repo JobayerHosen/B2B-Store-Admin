@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
-import { Navigation } from "../../components";
+import { Avatar, Navigation } from "../../components";
 import CustomerContent from "./CustomerContent";
 
 const Customers = () => {
@@ -15,8 +15,9 @@ const Customers = () => {
             <i onClick={() => navigate(-1)} className="bi bi-arrow-left fs-3"></i>
           </div>
           <h3>Customers</h3>
-          <div>
-            <i className="bi bi-search fs-3"></i>
+          <div className="d-flex align-items-center">
+            <i className="bi bi-bell fs-3"></i>
+            <Avatar />
           </div>
         </div>
       </header>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigation } from "../../components";
+import { Avatar, Navigation } from "../../components";
 import ActiveOrders from "./ActiveOrders";
 import Overview from "./Overview";
 
@@ -9,10 +9,11 @@ const Home = () => {
       {/*-------------PAGE HEADER-------------*/}
       <header className="header">
         <div className="title-bar">
-          <h3>B2B Store Admin</h3>
+          <h4>Home</h4>
           <div></div>
-          <div>
+          <div className="d-flex align-items-center">
             <i className="bi bi-bell fs-3"></i>
+            <Avatar />
           </div>
         </div>
       </header>

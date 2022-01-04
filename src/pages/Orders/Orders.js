@@ -1,22 +1,18 @@
 import React from "react";
-import { useNavigate } from "react-router";
-import { Navigation } from "../../components";
+import { Avatar, Navigation } from "../../components";
 import OrderContent from "./OrderContent";
 
 const Orders = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="view">
       {/*-------------PAGE HEADER-------------*/}
       <header className="header">
         <div className="title-bar">
-          <div>
-            <i onClick={() => navigate(-1)} className="bi bi-arrow-left fs-3"></i>
-          </div>
           <h3>Orders</h3>
-          <div>
+          <div></div>
+          <div className="d-flex align-items-center">
             <i className="bi bi-search fs-3"></i>
+            <Avatar />
           </div>
         </div>
       </header>
