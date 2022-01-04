@@ -108,6 +108,7 @@ img {
   top: 0;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 .logo {
@@ -151,6 +152,7 @@ img {
 .dashboard-card {
   background-color: #fff;
   border-radius: 1rem;
+  width: 100%;
   padding: 0.8rem;
   box-shadow: 0 0 2px 1px #00000006;
 }
@@ -161,7 +163,7 @@ img {
 }
 /* ------------------------------- */
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   /* -------Layout------- */
   .logo {
     display: block;

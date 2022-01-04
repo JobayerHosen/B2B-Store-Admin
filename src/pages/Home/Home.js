@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { Avatar, Navigation, SalesOverview } from "../../components";
+import { Avatar, Navigation, SalesOverview, Statistics } from "../../components";
 import ActiveOrders from "./ActiveOrders";
 
 const Home = () => {
@@ -27,11 +27,16 @@ const Home = () => {
 
         {/* ------------MAIN CONTENT------------*/}
         <div className="content">
-          <Row>
-            <Col xs="12" md="6">
-              <SalesOverview />
-            </Col>
-          </Row>
+          <div className="mb-4">
+            <Row>
+              <Col xs="12" md="6">
+                <SalesOverview />
+              </Col>
+              <Col xs="12" md="6">
+                <Statistics />
+              </Col>
+            </Row>
+          </div>
           <ActiveOrders />
         </div>
         {/* ------------------------------------ */}

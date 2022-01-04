@@ -4,11 +4,11 @@ import { Col, Row } from "react-bootstrap";
 
 const SalesOverview = () => {
   return (
-    <div className="mx-auto dashboard-card mb-3" style={{ maxWidth: "1000px" }}>
+    <div className="mx-auto h-100 dashboard-card mb-3" style={{ maxWidth: "1000px" }}>
       <div className="d-flex justify-content-between">
         <h5>Overview</h5>
       </div>
-      <Row>
+      <Row className="h-100">
         <Col xs="6">
           <div className="overview-card mb-3">
             <i className="bi bi-bar-chart-fill icon-shaded shade-blue"></i>
