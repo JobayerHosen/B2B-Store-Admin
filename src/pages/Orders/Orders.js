@@ -1,5 +1,6 @@
 import React from "react";
-import { Avatar, Navigation } from "../../components";
+import { Col, Row } from "react-bootstrap";
+import { Avatar, Navigation, OrderStats } from "../../components";
 import OrderContent from "./OrderContent";
 
 const Orders = () => {
@@ -26,7 +27,14 @@ const Orders = () => {
 
         {/* ------------MAIN CONTENT------------*/}
         <div className="content">
-          <OrderContent />
+          <Row>
+            <Col xs="12" md="7" className="mb-3">
+              <OrderContent />
+            </Col>
+            <Col xs="12" md="5" className="mb-3">
+              <OrderStats />
+            </Col>
+          </Row>
         </div>
         {/* ------------------------------------ */}
       </main>

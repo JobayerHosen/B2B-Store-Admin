@@ -5,31 +5,36 @@ import { NavLink } from "react-router-dom";
 import "./styles/OrderCard.css";
 
 const OrderCard = ({ order }) => {
-  const { id, status, grandTotal, items, date, paymentMethod } = order;
+  const { id, status, grandTotal, items, date, paymentMethod, customer } = order;
 
   return (
-    <div className="order-card shadow rounded mb-3 p-2">
-      <div className="d-flex w-100 justify-content-between align-items-center">
-        <p className=" fw-bold my-0">Order #{id}</p>
-        <p className="text-muted my-0">{moment(date).calendar()}</p>
-      </div>
-      <div className="d-flex align-items-center my-2">
-        <div className="img-wrapper border rounded">
-          <img src={[items[0]?.image]} alt="order image" />
+    <div className="list-item order-card">
+      {/* LIST LEFT SIDE  */}
+      <NavLink to={`/order-details/${id}`}>
+        <div className="list-item-left">
+          <div className="list-item-img">
+            <img src={[items[0]?.image]} />
+          </div>
+          <div className="list-main-info">
+            <div>
+              <small className="fw-bold my-0 me-3">Order #{id}</small>
+              <small className={`text-muted status ${status.toLowerCase()}`}>{status}</small>
+            </div>
+            <div>
+              <span className="fw-bold me-3">${grandTotal}</span>
+              <small className="text-muted me-3">{items?.length} Items</small>
+            </div>
+          </div>
         </div>
-        <div className="w-100">
-          <h6 className="text-muted">{items?.length} Items</h6>
-          <h5 className="fw-bold">${grandTotal}</h5>
+      </NavLink>
+
+      {/* LIST RIGHT SIDE  */}
+      <div className="list-item-right">
+        <div className="list-item-details">
+          <small className="text-muted my-0 me-2">{moment(date).calendar()}</small>
+          <span className="shade-warning p-0 px-2 rounded-pill fw-bold ">{paymentMethod}</span>
         </div>
-        <span className="alert-warning d-inline p-0 px-2 rounded-pill fw-bold text-secondary">{paymentMethod}</span>
-      </div>
-      <div className="d-flex w-100 justify-content-between align-items-center border-top pt-1">
-        <span className={`text-muted fw-bold status ${status.toLowerCase()}`}>{status}</span>
-        <NavLink to={`/order-details/${id}`}>
-          <Button className="rounded-pill py-0 fw-bold" variant="outline-secondary">
-            Details
-          </Button>
-        </NavLink>
+        <i className="bi bi-three-dots-vertical ms-2"></i>
       </div>
     </div>
   );
