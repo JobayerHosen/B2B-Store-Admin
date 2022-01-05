@@ -3,6 +3,7 @@ import { Button, Spinner, Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addOrders, getAllOrders } from "../../app/slices/orderSlice";
+import { OrderItem } from "../../components";
 import { fetchOrders } from "../../services/ordersApi";
 
 const OrderDetailsContent = ({ id }) => {
@@ -22,26 +23,7 @@ const OrderDetailsContent = ({ id }) => {
           <h5>Items ({order?.items?.length})</h5>
         </div>
         {order ? (
-          order.items?.map((item) => (
-            <div key={item.title} className="order-card shadow rounded mb-3 p-2">
-              <div className="d-flex align-items-center my-2">
-                <div className="img-wrapper border rounded">
-                  <img src={[item?.image]} alt="order image" />
-                </div>
-                <div className="w-100">
-                  <h6 className="text-muted">{item?.title}</h6>
-                  <div className="d-flex w-100 justify-content-between align-items-center pt-1">
-                    <h6 className="fw-bold">
-                      <span className="border px-1 rounded text-primary border-primary">{item?.quantity}</span> x $
-                      {item?.price}
-                    </h6>
-                    <h5>${item?.quantity * item?.price}</h5>
-                  </div>
-                </div>
-                <p className="fs-5 fw-bolder text-secondary"></p>
-              </div>
-            </div>
-          ))
+          order.items?.map((item) => <OrderItem key={item?.id} item={item} />)
         ) : (
           <Spinner animation="border" variant="primary" />
         )}
