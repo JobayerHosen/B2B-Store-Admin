@@ -4,9 +4,9 @@ import { Col, Row } from "react-bootstrap";
 
 const SalesOverview = () => {
   return (
-    <div className="mx-auto h-100 dashboard-card mb-3" style={{ maxWidth: "1000px" }}>
+    <div className="mx-auto dashboard-card mb-3" style={{ maxWidth: "1000px" }}>
       <div className="d-flex justify-content-between">
-        <h5>Overview</h5>
+        <h5>Sales Overview</h5>
       </div>
       <Row className="h-100">
         <Col xs="6">
