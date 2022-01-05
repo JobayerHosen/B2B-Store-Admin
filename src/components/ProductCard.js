@@ -6,22 +6,26 @@ import "./styles/ProductCard.css";
 const ProductCard = ({ product }) => {
   const { id, image, title, category, price } = product;
   return (
-    <div className="product-card shadow rounded mb-3 p-2">
-      <div className="img-wrapper">
-        <img src={image} alt="product image" />
-      </div>
-      <div className="w-100">
-        <h6 className="product-title">{title}</h6>
-        <small>{category}</small>
-        <h5 className="fw-bold">${price}</h5>
-        <div className="d-flex w-100 justify-content-between">
-          <span className="text-success">In Stock</span>
-          <NavLink to={`/products/${id}`}>
-            <Button className=" rounded-pill py-0 fw-bold" variant="outline-secondary">
-              Details
-            </Button>
-          </NavLink>
+    <div className="list-item">
+      <NavLink to={`/products/${id}`}>
+        <div className="list-item-left">
+          <div className="list-item-img">
+            <img src={image} alt="product image" />
+          </div>
+          <div className="list-main-info">
+            <small className="product-title">{title}</small>
+            <h6 className="fw-bold">${price}</h6>
+          </div>
         </div>
+      </NavLink>
+
+      {/* LIST RIGHT SIDE  */}
+      <div className="list-item-right">
+        <div className="list-item-details">
+          <small className="shade-success p-0 px-2 rounded-pill fw-bold  ">In Stock</small>
+        </div>
+
+        <i className="bi bi-three-dots-vertical ms-2"></i>
       </div>
     </div>
   );

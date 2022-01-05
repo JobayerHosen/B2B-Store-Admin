@@ -1,5 +1,6 @@
 import React from "react";
-import { Avatar, Navigation } from "../../components";
+import { Col, Row } from "react-bootstrap";
+import { Avatar, Navigation, SalesOverview } from "../../components";
 import ProductsContent from "./ProductsContent";
 
 const Products = () => {
@@ -26,7 +27,14 @@ const Products = () => {
 
         {/* ------------MAIN CONTENT------------*/}
         <div className="content">
-          <ProductsContent />
+          <Row>
+            <Col xs="12" md="7" className="mb-3">
+              <ProductsContent />
+            </Col>
+            <Col xs="12" md="5" className="mb-3">
+              <SalesOverview />
+            </Col>
+          </Row>
         </div>
         {/* ------------------------------------ */}
       </main>
