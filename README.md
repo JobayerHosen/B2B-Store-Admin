@@ -1,6 +1,6 @@
 # B2B Store Admin
 
-An online store management app
+An admin panel for an online store management 
 
 # [LIVE](https://b2b-store-admin.netlify.app/)
 
